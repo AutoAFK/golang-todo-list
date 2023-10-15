@@ -14,7 +14,8 @@ func main() {
 	fmt.Println("==========")
 	fmt.Println("1. Create new task")
 	fmt.Println("2. Edit task")
-	fmt.Println("3. view list")
+  fmt.Println("3. Delete task")
+	fmt.Println("4. View task list")
 	fmt.Println("0. Exit")
 
 	manager := manager.NewManager()
@@ -35,7 +36,12 @@ func main() {
       if err != nil {
         panic(err)
       }
-		case "3":
+    case "3":
+      err := manager.DeleteTask()
+      if err != nil {
+        panic(err)
+      }
+		case "4":
 			manager.ViewTasks()
 		case "0", "exit":
 			return
